@@ -19,4 +19,3 @@ def get_weather(city):
 # Example usage
 city = "Seattle"
 print(get_weather(city))
-

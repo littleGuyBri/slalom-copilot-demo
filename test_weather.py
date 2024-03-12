@@ -1,7 +1,7 @@
 # FILEPATH: /Users/bguthrie/code/slalom-copilot-demo/test_demo.py
 import unittest
 from unittest.mock import patch
-import demo  # assuming your original file is named demo.py
+import weather  # assuming your original file is named demo.py
 
 class TestGetWeather(unittest.TestCase):
 
@@ -14,7 +14,7 @@ class TestGetWeather(unittest.TestCase):
             "main": {"temp": 280, "humidity": 80}
         }
 
-        result = demo.get_weather("Seattle")
+        result = weather.get_weather("Seattle")
         expected_result = "Weather in Seattle: clear sky, Temperature: 280K, Humidity: 80%"
         self.assertEqual(result, expected_result)
 
@@ -24,9 +24,10 @@ class TestGetWeather(unittest.TestCase):
         mock_response.status_code = 404
         mock_response.json.return_value = {}
 
-        result = demo.get_weather("InvalidCity")
+        result = weather.get_weather("InvalidCity")
         expected_result = "Failed to retrieve weather information."
         self.assertEqual(result, expected_result)
 
 if __name__ == '__main__':
     unittest.main()
+    
