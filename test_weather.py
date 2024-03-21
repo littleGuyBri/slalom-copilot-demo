@@ -28,6 +28,20 @@ class TestGetWeather(unittest.TestCase):
         expected_result = "Failed to retrieve weather information."
         self.assertEqual(result, expected_result)
 
+    @patch('demo.requests.get')
+    def test_get_weather_new_york(self, mock_get):
+        mock_response = mock_get.return_value
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "weather": [{"description": "sunny"}],
+            "main": {"temp": 290, "humidity": 70}
+        }
+
+        result = weather.get_weather("New York")
+        expected_result = "Weather in New York: sunny, Temperature: 290K, Humidity: 70%"
+        self.assertEqual(result, expected_result)
+
 if __name__ == '__main__':
     unittest.main()
+    
     
