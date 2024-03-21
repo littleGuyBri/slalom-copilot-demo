@@ -1,4 +1,3 @@
-// FILEPATH: /Users/bguthrie/code/slalom-copilot-demo/WeatherLookupTest.java
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
